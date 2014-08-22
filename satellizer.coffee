@@ -359,11 +359,12 @@ class Satellizer extends Module
   class Utils extends Service
     constructor: () ->
       @camelCase = (name) ->
-        return name.replace(/([\:\-\_]+(.))/g, (_, separator, letter, offset) ->
-          if offset then return letter.toUpperCase() else return letter
+        return name.replace /([\:\-\_]+(.))/g, (_, separator, letter, offset) ->
+          letter.toUpperCase() if offset
+          return letter
 
       @parseQueryString = (keyValue) ->
-        obj = { }, key, value
+        obj = {}
         angular.forEach (keyValue or '').split('&'), (keyValue) ->
           if keyValue
             value = keyValue.split '='
