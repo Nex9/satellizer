@@ -79,7 +79,7 @@
   };
 
   Satellizer = (function(_super) {
-    var $auth, HttpInterceptor, Local, Oauth1, Oauth2, Popup, RunBlock, Utils, onRun;
+    var $auth, Local, Oauth1, Oauth2, Popup, RunBlock, Utils, httpInterceptor, onRun;
 
     __extends(Satellizer, _super);
 
@@ -463,10 +463,10 @@
 
     })(Service);
 
-    HttpInterceptor = (function(_super1) {
-      __extends(HttpInterceptor, _super1);
+    httpInterceptor = (function(_super1) {
+      __extends(httpInterceptor, _super1);
 
-      function HttpInterceptor($httpProvider) {
+      function httpInterceptor($httpProvider) {
         $httpProvider.interceptors.push(function($q, $window, $location) {
           return {
             request: function(config) {
@@ -486,7 +486,7 @@
         });
       }
 
-      return HttpInterceptor;
+      return httpInterceptor;
 
     })(config);
 

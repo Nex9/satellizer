@@ -372,7 +372,7 @@ class Satellizer extends Module
             obj[key] = if angular.isDefined value[1] then decodeURIComponent value[1] else true
         return obj
 
-  class HttpInterceptor extends config
+  class httpInterceptor extends config
     constructor: ($httpProvider) ->
       $httpProvider.interceptors.push ($q, $window, $location) ->
         return {
